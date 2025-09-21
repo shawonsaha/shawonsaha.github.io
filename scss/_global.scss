@@ -78,3 +78,118 @@ p.lead {
     }
   }
 }
+
+// Company Logos Section
+.company-logos-section {
+  overflow: hidden;
+  
+  .logos-container {
+    position: relative;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 20px 0;
+    
+    // Custom scrollbar styling
+    &::-webkit-scrollbar {
+      height: 6px;
+    }
+    
+    &::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 3px;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 3px;
+      
+      &:hover {
+        background: rgba(255, 255, 255, 0.5);
+      }
+    }
+  }
+  
+  .logos-track {
+    display: flex;
+    gap: 2rem;
+    padding: 0 1rem;
+    min-width: max-content;
+    align-items: center;
+    
+    // Enable smooth scrolling
+    scroll-behavior: smooth;
+    
+    // Add scroll snap for better UX on mobile
+    scroll-snap-type: x mandatory;
+  }
+  
+  .logo-item {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    scroll-snap-align: center;
+    min-width: 140px;
+    height: 80px;
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    
+    svg {
+      max-width: 100%;
+      max-height: 100%;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .company-logos-section {
+    .logos-track {
+      gap: 1.5rem;
+      padding: 0 0.5rem;
+    }
+    
+    .logo-item {
+      min-width: 120px;
+      height: 70px;
+      padding: 0.75rem;
+      
+      svg {
+        width: 100px;
+        height: 50px;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .company-logos-section {
+    .logos-track {
+      gap: 1rem;
+    }
+    
+    .logo-item {
+      min-width: 100px;
+      height: 60px;
+      padding: 0.5rem;
+      
+      svg {
+        width: 80px;
+        height: 40px;
+      }
+    }
+  }
+}
